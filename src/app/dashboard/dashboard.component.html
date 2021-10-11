@@ -13,9 +13,20 @@
       </mat-form-field>
     </div>
 
-  <!-- Table  -->
-  <mat-table #table [dataSource]="dataSource" matSort>
+    <!-- Infinite Scroll -->
+    <!-- <app-scroll-container [more]="hasMore()"
+                      [scrollOffset]="2500"
+                      [scrollDelay]="3000"
+                      (scrolled)="handleScroll($event)"
+                      [class.full]="full"
+                      [class.part]="!full"> -->
 
+  <!-- Table  -->
+  <div class="example-container mat-elevation-z8">
+    <!-- <mat-table #table [dataSource]="dataSource" > -->
+
+  <mat-table #table [dataSource]="dataSource" matSort (scroll)="onTableScroll($event)">
+    <!-- (scroll)="onTableScroll($event)" -->
     <!-- Checkbox -->
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
@@ -57,6 +68,10 @@
       <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+
+  </div>
+
+<!-- </app-scroll-container> -->

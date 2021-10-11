@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSortModule } from '@angular/material/sort';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatInputModule,
     BrowserAnimationsModule,
     MatSortModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
